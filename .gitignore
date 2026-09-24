@@ -1,0 +1,9 @@
+!storage/**/.gitkeep
+!storage/keys/.gitkeep
+.env
+.env.*.local
+.env.production
+storage/keys/*
+storage/logs/*
+storage/tmp/*
+storage/uploads/*

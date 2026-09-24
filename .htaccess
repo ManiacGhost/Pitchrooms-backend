@@ -1,0 +1,14 @@
+# Belt and braces: if the document root is ever pointed at the project root
+# instead of public/, keep application files unreachable and route to public.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(src|routes|database|storage|bin)/ - [F,L]
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<FilesMatch "^(\.env|\.env\..*|composer\.(json|lock))$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes
